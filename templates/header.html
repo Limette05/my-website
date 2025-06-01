@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar {
+        display: flex;
+        align-items: center;
+        height: 20vh;
+        width: 100%;
+        background-color: rgba(5, 5, 10, 0.5);
+      }
+      .logo {
+        display: block;
+        float: left;
+        max-height: 20vh;
+      }
+      .menu {
+        display: none;
+        min-width: 200px;
+        min-height: 200px;
+        z-index: 1;
+        background-color: rgba(5, 5, 10, 1);
+      }
+      .menu-icon {
+        padding-right: 25px;
+        font-size: 64px;
+        display: flex;
+        width: 100%;
+        justify-content: end;
+      }
+      .menu-icon:hover .menu {
+        display: flex;
+        flex-flow: column;
+      }
+
+      .menu a {
+        text-decoration: none;
+      }
+      .menu a:hover {
+        color: rgb(54, 214, 102);
+        background-color: rgb(33, 33, 33);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a style="display: flex" href="/"
+        ><img class="logo" src="/static/img/logo.png" alt="" />
+      </a>
+      <div style="font-size: 48px; font-weight: bold">Limettensaft</div>
+      <div class="menu-icon">
+        <a
+          onmouseover=""
+          style="cursor: default"
+          class="navigation_text-dropdown"
+          href="javascript:void(0)"
+          ><i class="bx bx-menu"></i>
+        </a>
+      </div>
+      <div class="menu">
+        <a class="menu-item">About me</a>
+        <a class="menu-item">Chat</a>
+        <a class="menu-item">Services</a>
+        <a class="menu-item">Weiteres</a>
+      </div>
+    </div>
+  </body>
+</html>

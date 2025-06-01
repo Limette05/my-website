@@ -1,0 +1,23 @@
+::-moz-selection {
+  /* Code for Firefox */
+  color: dark-gray;
+  background: rgba(34, 178, 34, 0.6);
+}
+
+::selection {
+  color: dark-gray;
+  background: rgba(34, 178, 34, 0.6);
+}
+
+body {
+  font-family: "Poppins";
+  margin: 0;
+  margin-bottom: 0;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.65);
+  color: whitesmoke;
+  background-color: rgba(5, 5, 10, 0.85);
+}
+
+a {
+  color: rgb(70, 210, 110);
+}

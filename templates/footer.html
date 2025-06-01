@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .footer-kachel {
+        display: flex;
+        gap: 25px;
+        flex-flow: column;
+      }
+      .footer-item {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        background-color: rgba(5, 5, 10, 0.5);
+        justify-content: center;
+        gap: 50px;
+        padding-block: 25px;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: center;
+          gap: 25px;
+        "
+      >
+        <div class="footer-kachel">
+          <div class="footer-item">Das ist der Footer</div>
+          <div class="footer-item"><a href="impressum">Impressum</a></div>
+        </div>
+        <div class="footer-kachel">
+          <div class="footer-item"><a href="datenschutz">Datenschutz</a></div>
+          <div class="footer-item"><a href="link">Check das ab!</a></div>
+        </div>
+      </div>
+      <div class="footer-item">© Limette05 2025</div>
+    </div>
+  </body>
+</html>
