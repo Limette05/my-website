@@ -15,61 +15,101 @@
         height: 20vh;
         width: 100%;
         background-color: rgba(5, 5, 10, 0.5);
+        align-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: height 0.275s ease;
       }
       .logo {
         display: block;
         float: left;
         max-height: 20vh;
       }
-      .menu {
+      .menu-content {
+        min-width: 20vw;
+        font-size: 32px;
+        padding: 15px 15px;
+        position: absolute;
         display: none;
-        min-width: 200px;
-        min-height: 200px;
-        z-index: 1;
+        z-index: 100000;
         background-color: rgba(5, 5, 10, 1);
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        margin-top: -10px;
       }
-      .menu-icon {
-        padding-right: 25px;
+      .navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .menu {
+        align-self: center;
+        order: 3;
         font-size: 64px;
         display: flex;
-        width: 100%;
-        justify-content: end;
       }
-      .menu-icon:hover .menu {
+      .menu-icon:hover .menu-content {
         display: flex;
         flex-flow: column;
       }
 
-      .menu a {
+      .menu-content a {
         text-decoration: none;
+        text-align: center;
+        width: 100%;
+        color: whitesmoke;
       }
-      .menu a:hover {
-        color: rgb(54, 214, 102);
+      .menu-content a:hover {
+        color: rgb(70, 210, 110);
         background-color: rgb(33, 33, 33);
+      }
+      .nav-left {
+        display: flex;
+        align-items: center;
       }
     </style>
   </head>
   <body>
     <div class="navbar">
-      <a style="display: flex" href="/"
-        ><img class="logo" src="/static/img/logo.png" alt="" />
-      </a>
-      <div style="font-size: 48px; font-weight: bold">Limettensaft</div>
-      <div class="menu-icon">
-        <a
-          onmouseover=""
-          style="cursor: default"
-          class="navigation_text-dropdown"
-          href="javascript:void(0)"
-          ><i class="bx bx-menu"></i>
+      <div class="nav-left">
+        <a style="display: flex; order: 1" href="/"
+          ><img class="logo" src="/static/img/logo.png" alt="" />
         </a>
+        <div style="font-size: 48px; font-weight: bold; order: 2">
+          Limettensaft
+        </div>
       </div>
-      <div class="menu">
-        <a class="menu-item">About me</a>
-        <a class="menu-item">Chat</a>
-        <a class="menu-item">Services</a>
-        <a class="menu-item">Weiteres</a>
+      <div class="navbar-center">
+        <div class="menu">
+          <div class="menu-icon">
+            <a
+              onmouseover=""
+              style="cursor: default"
+              class="navigation_text-dropdown"
+              href="javascript:void(0)"
+              ><i class="bx bx-menu"></i>
+            </a>
+            <div class="menu-content">
+              <a onmouseover="" style="cursor: default" class="menu-item"
+                >About me</a
+              >
+              <a onmouseover="" style="cursor: default" class="menu-item"
+                >Chat</a
+              >
+              <a onmouseover="" style="cursor: default" class="menu-item"
+                >Services</a
+              >
+              <a onmouseover="" style="cursor: default" class="menu-item"
+                >Weiteres</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="/static/script.js"></script>
   </body>
 </html>
