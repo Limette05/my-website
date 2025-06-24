@@ -15,10 +15,20 @@
     />
   </head>
   <body>
-    <img class="head-background" src="/static/img/background.jpg" alt="" />
+    <div class="header-container">
+      <img class="head-background" src="/static/img/background.jpg" alt="" />
+      <div class="header-fullscreen">
+        <button>
+          <i style="font-size: 2.5em;" class="bx bx-fullscreen"></i>
+        </button>
+      </div>
+      <div class="header">
+        <h1>Hallo, das ist meine Website!</h1>
+      </div>
+    </div>
     {% include "header.html" %}
     <div class="homepage">
-      <div class="header"><h1>Hallo, das ist meine Website!</h1></div>
+      
     </div>
     {% include "footer.html" %}
     <script src="/static/script.js"></script>
