@@ -53,26 +53,59 @@ button:hover {
   text-align: center;
 }
 
+.toggle-fullscreen {
+  position: absolute;
+  top: 4em;
+  bottom: 4em;
+  left: 4em;
+  right: 4em;
+  width: calc(100vw - 8em);
+  height: calc(100vh - 8em);
+  z-index: 1000000;
+  background-color: rgba(5, 5, 10, 0.3);
+  align-items: center;
+  justify-content: center;
+}
+
 .header {
   position: absolute;
+  display: flex;
+  flex-flow: column;
   left: 50%;
-  transform: translatex(-50%);
-  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  transform: translate(-50%, -125%);
+}
+
+.header-menu {
+  display: flex;
+  flex-flow: row;
+  gap: 1em;
+  justify-content: center;
+}
+
+.header-menu button {
+  padding: 0.5em 0.5em;
+  border-radius: 0.5em;
 }
 
 .header-fullscreen {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2em;
+  order: 2;
+}
+
+.header-slide-left {
+  order: 1;
+}
+
+.header-slide-right {
+  order: 3;
 }
 
 /* phone */
 @media (max-width: 600px) {
   body {
-    font-size: 14px
-  };
+    font-size: 14px;
+  }
 }
 
 /* portrait tablet or big phone */

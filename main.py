@@ -18,16 +18,16 @@ SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 db.init_app(app)
 
-class User(db.Model, UserMixin):
+class Header(db.Model):
    id = db.Column(db.Integer, primary_key=True)
-   name = db.Column(db.String(100))
-   created_at = db.Column(db.DateTime(), default=datetime.now)
-
+   title = db.Column(db.String(200))
+   created_at = db.Column(db.DateTime(), default=datetime.datetime.now)
 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    mylist = {"1":"Hallo, das ist meine Website!","2":"Ich bin ein total entspannter Typ :)"}
+    return render_template("index.html", headers=mylist)
 
 if __name__ == "__main__":
     app.run(host=host)

@@ -16,3 +16,57 @@ document.addEventListener("scroll", function () {
     logo.style.maxHeight = "180px"; // Ursprüngliche Größe des Logos
   }
 });
+
+function showMenuOnMobile() {
+  let menu = document.getElementById("menu-content");
+  let mobileMenu = document.getElementById("menu-content-mobile");
+  let menuBtn = document.getElementById("mobile-menu-button");
+  let device = getComputedStyle(document.body).getPropertyValue("--device");
+
+  if (device === "desktop") {
+    menu.classList.toggle("show-menu");
+  } else if (device === "mobile") {
+    mobileMenu.classList.toggle("show-menu");
+    menuBtn.classList.toggle("show-menu");
+    document.body.style.overflow = document.body.style.overflow
+      ? null
+      : "hidden";
+  }
+}
+
+// hide menu on clicking outside
+window.addEventListener("mouseup", function (event) {
+  const menu = document.getElementById("menu-content");
+  const device = getComputedStyle(document.body).getPropertyValue("--device");
+
+  if (device === "desktop" && !menu.contains(event.target)) {
+    menu.classList.remove("show-menu");
+  }
+});
+
+window.addEventListener("mouseup", function (event) {
+  const slideShow = document.getElementById("header-container");
+
+  if (!slideShow.contains(event.target)) {
+    slideShow.classList.remove("toggle-fullscreen");
+    document.body.style.overflow = null;
+  }
+});
+
+function toggleFullscreen(anyContainer, anyMenu) {
+  let container = document.getElementById(anyContainer);
+  let menu = document.getElementById(anyMenu);
+  container.classList.toggle("toggle-fullscreen");
+  menu.classList.toggle("");
+  document.body.style.overflow = document.body.style.overflow ? null : "hidden";
+}
+
+function slide(anyContainer, direction) {
+  let container = document.getElementById(anyContainer);
+
+  if (direction === "left") {
+    container.scrollLeft -= 500;
+  } else if (direction === "right") {
+    container.scrollLeft += 500;
+  }
+}

@@ -15,21 +15,36 @@
     />
   </head>
   <body>
-    <div class="header-container">
-      <img class="head-background" src="/static/img/background.jpg" alt="" />
-      <div class="header-fullscreen">
-        <button>
-          <i style="font-size: 2.5em;" class="bx bx-fullscreen"></i>
-        </button>
-      </div>
+    <div class="header-container" id="header-container">
+      {% for header in headers %}
+      <img class="head-background" src="/static/img/{{ header }}.jpg" alt="" />
       <div class="header">
-        <h1>Hallo, das ist meine Website!</h1>
+        <h1>{{ header[header] }}</h1>
+        <div class="header-menu">
+          <button
+            class="header-slide-left"
+            onclick="slide('header-container', 'left')"
+          >
+            <i style="font-size: 3em" class="bx bx-chevron-left"></i>
+          </button>
+          <button
+            class="header-fullscreen"
+            onclick="toggleFullscreen('header-container')"
+          >
+            <i style="font-size: 3em" class="bx bx-fullscreen"></i>
+          </button>
+          <button
+            class="header-slide-right"
+            onclick="slide('header-container', 'right')"
+          >
+            <i style="font-size: 3em" class="bx bx-chevron-right"></i>
+          </button>
+        </div>
       </div>
+      {% endfor %}
     </div>
     {% include "header.html" %}
-    <div class="homepage">
-      
-    </div>
+    <div class="homepage"></div>
     {% include "footer.html" %}
     <script src="/static/script.js"></script>
   </body>

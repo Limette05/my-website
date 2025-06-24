@@ -9,6 +9,10 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --device: desktop;
+      }
+
       .navbar {
         display: flex;
         align-items: center;
@@ -29,7 +33,7 @@
       }
       .menu-content {
         min-width: 20vw;
-        font-size: 32px;
+        font-size: 0.5em;
         padding: 15px 15px;
         position: absolute;
         display: none;
@@ -39,21 +43,60 @@
         transform: translateX(-50%);
         align-items: center;
         margin-top: -10px;
+        flex-flow: column;
       }
+
+      .menu-content-mobile {
+        font-size: 2em;
+        position: absolute;
+        display: none;
+        gap: 1em;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 200000;
+        background-color: rgba(5, 5, 10, 1);
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        overflow-y: hidden;
+      }
+
+      .show-menu {
+        display: flex;
+      }
+
+      .mobile-menu-button {
+        font-size: 2.5em;
+        margin-bottom: 1em;
+        color: rgb(70, 210, 110);
+        text-decoration: none;
+      }
+
+      .menu-button {
+        cursor: default;
+      }
+
       .navbar-center {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        right: 50%;
+        transform: translateX(50%);
       }
       .menu {
         align-self: center;
         order: 3;
-        font-size: 64px;
         display: flex;
       }
+
+      .menu-icon {
+        font-size: 4em;
+      }
+
       .menu-icon:hover .menu-content {
         display: flex;
-        flex-flow: column;
       }
 
       .menu-content a {
@@ -70,29 +113,137 @@
         display: flex;
         align-items: center;
       }
+
+      .title-name {
+        font-size: 2.5em;
+        font-weight: bold;
+        order: 2;
+      }
+
+      /* phone */
+      @media (max-width: 600px) {
+        :root {
+          --device: mobile;
+        }
+        body {
+          font-size: 14px;
+        }
+        .title-name {
+          font-size: 1.8em;
+        }
+        .navbar-center {
+          position: absolute;
+          right: 0;
+          transform: translateX(-20%);
+        }
+        .menu-icon:hover .menu-content {
+          display: none;
+        }
+      }
+
+      /* portrait tablet or big phone */
+      @media (min-width: 600px) {
+        :root {
+          --device: mobile;
+        }
+        body {
+          font-size: 15px;
+        }
+        .title-name {
+          font-size: 2em;
+        }
+        .navbar-center {
+          position: absolute;
+          right: 0;
+          transform: translateX(-20%);
+        }
+      }
+
+      /* Tablet */
+      @media (min-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        .title-name {
+          font-size: 2.2em;
+        }
+        .navbar-center {
+          position: absolute;
+          right: 0;
+          transform: translateX(-20%);
+        }
+      }
+
+      /* Laptop */
+      @media (min-width: 992px) {
+        :root {
+          --device: desktop;
+        }
+        body {
+          font-size: 18px;
+        }
+        .title-name {
+          font-size: 2.5em;
+        }
+        .navbar-center {
+          position: absolute;
+          right: 50%;
+          transform: translateX(50%);
+        }
+        .menu-icon:hover .menu-content {
+          display: flex;
+        }
+      }
+
+      /* Desktop */
+      @media (min-width: 1200px) {
+        body {
+          font-size: 20px;
+        }
+        .title-name {
+          font-size: 2.5em;
+        }
+        .navbar-center {
+          position: absolute;
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="menu-content-mobile" id="menu-content-mobile">
+      <a
+        onmouseover=""
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        href="javascript:void(0)"
+        onclick="showMenuOnMobile()"
+        ><i class="bx bx-menu"></i>
+      </a>
+      <a onmouseover="" style="cursor: default" class="menu-item">About me</a>
+      <a onmouseover="" style="cursor: default" class="menu-item">Chat</a>
+      <a onmouseover="" style="cursor: default" class="menu-item">Services</a>
+      <a onmouseover="" style="cursor: default" class="menu-item">Weiteres</a>
+    </div>
     <div class="navbar">
       <div class="nav-left">
         <a style="display: flex; order: 1" href="/"
           ><img class="logo" src="/static/img/logo.png" alt="" />
         </a>
-        <div style="font-size: 48px; font-weight: bold; order: 2">
-          Limettensaft
-        </div>
+        <div class="title-name">Limettensaft</div>
       </div>
       <div class="navbar-center">
         <div class="menu">
           <div class="menu-icon">
             <a
               onmouseover=""
-              style="cursor: default; color: rgb(70, 210, 110);"
-              class="navigation_text-dropdown"
+              class="menu-button"
               href="javascript:void(0)"
+              onclick="showMenuOnMobile()"
               ><i class="bx bx-menu"></i>
             </a>
-            <div class="menu-content">
+            <div class="menu-content" id="menu-content">
               <a onmouseover="" style="cursor: default" class="menu-item"
                 >About me</a
               >
