@@ -80,8 +80,6 @@ button:hover {
 
 .toggle-fullscreen {
   position: absolute;
-  top: 4em;
-  bottom: 4em;
   left: 4em;
   right: 4em;
   width: calc(100vw - 8em);
@@ -131,6 +129,11 @@ button:hover {
   body {
     font-size: 14px;
   }
+  .toggle-fullscreen {
+    left: 0em;
+    right: 0em;
+    width: 100vw;
+  }
 }
 
 /* portrait tablet or big phone */
@@ -152,6 +155,10 @@ button:hover {
   body {
     font-size: 18px;
   }
+  .toggle-fullscreen {
+    left: 4em;
+    right: 4em;
+    width: calc(100vw - 8em);}
 }
 
 /* Desktop */

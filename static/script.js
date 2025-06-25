@@ -53,8 +53,11 @@ window.addEventListener("mouseup", function (event) {
   }
 });
 
-function toggleFullscreen(anyContainer) {
+function toggleFullscreen(anyContainer, anyBtn) {
   let container = document.getElementById(anyContainer);
+  let btn = document.getElementById(anyBtn);
+  btn.classList.toggle("bx-fullscreen");
+  btn.classList.toggle("bx-fullscreen-exit")
   container.classList.toggle("toggle-fullscreen");
   document.body.style.overflow = document.body.style.overflow ? null : "hidden";
 }

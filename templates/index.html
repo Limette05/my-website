@@ -9,10 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
     <div class="header-container" id="header-container">
@@ -36,9 +33,9 @@
           </button>
           <button
             class="header-fullscreen"
-            onclick="toggleFullscreen('header-container')"
+            onclick="toggleFullscreen('header-container','header-fullscreen')"
           >
-            <i style="font-size: 3em" class="bx bx-fullscreen"></i>
+            <i id="header-fullscreen" style="font-size: 3em" class="bx bx-fullscreen"></i>
           </button>
           <button
             class="header-slide-right"
