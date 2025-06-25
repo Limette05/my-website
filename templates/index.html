@@ -16,14 +16,21 @@
   </head>
   <body>
     <div class="header-container" id="header-container">
-      {% for header in headers %}
-      <img class="head-background" src="/static/img/{{ header }}.jpg" alt="" />
+      <div class="head-wrapper" id="header-wrapper">
+        {% for header in headers %}
+        <div class="head-box">
+          <div class="head-background">
+            <img class="head-background" src="/static/img/headers/{{ header['image'] }}" alt="" />
+            <h1>{{ header['title'] }}</h1>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
       <div class="header">
-        <h1>{{ header[header] }}</h1>
         <div class="header-menu">
           <button
             class="header-slide-left"
-            onclick="slide('header-container', 'left')"
+            onclick="slide('header-wrapper', 'left')"
           >
             <i style="font-size: 3em" class="bx bx-chevron-left"></i>
           </button>
@@ -35,13 +42,12 @@
           </button>
           <button
             class="header-slide-right"
-            onclick="slide('header-container', 'right')"
+            onclick="slide('header-wrapper', 'right')"
           >
             <i style="font-size: 3em" class="bx bx-chevron-right"></i>
           </button>
         </div>
       </div>
-      {% endfor %}
     </div>
     {% include "header.html" %}
     <div class="homepage"></div>

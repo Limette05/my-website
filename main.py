@@ -20,13 +20,15 @@ db.init_app(app)
 
 class Header(db.Model):
    id = db.Column(db.Integer, primary_key=True)
-   title = db.Column(db.String(200))
+   title = db.Column(db.String(200), nullable=True)
+   image = db.Column(db.String, nullable=False)
    created_at = db.Column(db.DateTime(), default=datetime.datetime.now)
 
 
 @app.route("/")
 def index():
-    mylist = {"1":"Hallo, das ist meine Website!","2":"Ich bin ein total entspannter Typ :)"}
+    mylist = [{"image":"1.jpg","title":"Hallo, das ist meine Website!"}, 
+              {"image":"2.jpg", "title":"Ich bin ein total entspannter Typ! :)"}]
     return render_template("index.html", headers=mylist)
 
 if __name__ == "__main__":

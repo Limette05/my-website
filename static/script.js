@@ -53,20 +53,24 @@ window.addEventListener("mouseup", function (event) {
   }
 });
 
-function toggleFullscreen(anyContainer, anyMenu) {
+function toggleFullscreen(anyContainer) {
   let container = document.getElementById(anyContainer);
-  let menu = document.getElementById(anyMenu);
   container.classList.toggle("toggle-fullscreen");
-  menu.classList.toggle("");
   document.body.style.overflow = document.body.style.overflow ? null : "hidden";
 }
 
 function slide(anyContainer, direction) {
   let container = document.getElementById(anyContainer);
+  const device = getComputedStyle(document.body).getPropertyValue("--device");
+  let scroll = 1000
+
+  if (device === "mobile") {
+    scroll = 500;
+  }
 
   if (direction === "left") {
-    container.scrollLeft -= 500;
+    container.scrollLeft -= scroll;
   } else if (direction === "right") {
-    container.scrollLeft += 500;
+    container.scrollLeft += scroll;
   }
 }
