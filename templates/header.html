@@ -14,7 +14,7 @@
       }
       .scrolled-down {
         height: fit-content;
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0, 0, 0, 0);
         transition: opacity 0.3s ease;
       }
       .navbar {
@@ -46,19 +46,19 @@
         left: 50%;
         transform: translateX(-50%);
         align-items: center;
-        margin-top: -10px;
         flex-flow: column;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        top: 100%;
       }
 
       .menu-content-mobile {
         font-size: 2em;
-        position: absolute;
+        position: fixed;
         display: none;
         gap: 1em;
         top: 0;
-        bottom: 0;
         left: 0;
-        right: 0;
         width: 100vw;
         height: 100vh;
         z-index: 200000;
@@ -66,7 +66,7 @@
         align-items: center;
         justify-content: center;
         flex-flow: column;
-        overflow-y: hidden;
+        overflow: hidden;
       }
 
       .show-menu {
@@ -75,34 +75,39 @@
 
       .mobile-menu-button {
         font-size: 2.5em;
-        width: 2em;
-        height: 2em;
-        margin-bottom: 1em;
         color: rgb(70, 210, 110);
         text-decoration: none;
+        margin-bottom: 1em;
       }
 
       .menu-button {
         cursor: default;
-      }
-
-      .navbar-center {
-        position: absolute;
-        right: 50%;
-        transform: translateX(50%);
-      }
-      .menu {
-        align-self: center;
-        order: 3;
+        height: max-content;
         display: flex;
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
       }
 
       .menu-icon {
         font-size: 4em;
+        position: fixed;
+        right: 50%;
+        height: 20vh;
+        transform: translateX(50%);
+        align-self: center;
+        order: 3;
+        display: flex;
+        align-items: center;
       }
 
       .menu-icon:hover .menu-content {
         display: flex;
+      }
+      .menu-icon:hover .menu-button {
+        border-radius: none;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
       }
 
       .menu-content a {
@@ -125,10 +130,11 @@
         font-size: 2.5em;
         font-weight: bold;
         order: 2;
+        align-content: center;
       }
 
       /* phone */
-      @media (max-width: 600px) {
+      @media (max-width: 767px) {
         :root {
           --device: mobile;
         }
@@ -138,46 +144,29 @@
         .title-name {
           font-size: 1.8em;
         }
-        .navbar-center {
-          position: absolute;
-          right: 0;
-          transform: translateX(-20%);
+        .menu-icon {
+          right: 0.2em;
+          transform: none;
         }
         .menu-icon:hover .menu-content {
           display: none;
         }
       }
 
-      /* portrait tablet or big phone */
-      @media (min-width: 600px) {
-        :root {
-          --device: mobile;
-        }
+      /* Tablet */
+      @media (min-width: 768px) {
         body {
           font-size: 15px;
         }
         .title-name {
-          font-size: 2em;
-        }
-        .navbar-center {
-          position: absolute;
-          right: 0;
-          transform: translateX(-20%);
-        }
-      }
-
-      /* Tablet */
-      @media (min-width: 768px) {
-        body {
-          font-size: 16px;
-        }
-        .title-name {
           font-size: 2.2em;
         }
-        .navbar-center {
-          position: absolute;
-          right: 0;
-          transform: translateX(-20%);
+        .menu-icon {
+          right: 0.2em;
+          transform: none;
+        }
+        .menu-icon:hover .menu-content {
+          display: none;
         }
       }
 
@@ -187,13 +176,12 @@
           --device: desktop;
         }
         body {
-          font-size: 18px;
+          font-size: 17px;
         }
         .title-name {
           font-size: 2.5em;
         }
-        .navbar-center {
-          position: absolute;
+        .menu-icon {
           right: 50%;
           transform: translateX(50%);
         }
@@ -206,14 +194,6 @@
       @media (min-width: 1200px) {
         body {
           font-size: 20px;
-        }
-        .title-name {
-          font-size: 2.5em;
-        }
-        .navbar-center {
-          position: absolute;
-          right: 50%;
-          transform: translateX(50%);
         }
       }
     </style>
@@ -233,40 +213,34 @@
       <a onmouseover="" style="cursor: default" class="menu-item">Services</a>
       <a onmouseover="" style="cursor: default" class="menu-item">Weiteres</a>
     </div>
+
     <div class="navbar" id="navbar">
       <div class="nav-left">
-        <a style="display: flex; order: 1" href="/"
+        <a style="display: flex; order: 1; text-decoration: none" href="/"
           ><img class="logo" src="/static/img/logo.png" alt="" />
           <div class="title-name">Limettensaft</div>
         </a>
       </div>
-      <div class="navbar-center">
-        <div class="menu">
-          <div class="menu-icon" id="menu-icon">
-            <a
-              onmouseover=""
-              class="menu-button"
-              href="javascript:void(0)"
-              onclick="showMenu()"
-              ><i class="bx bx-menu"></i>
-            </a>
-            <div class="menu-content" id="menu-content">
-              <a onmouseover="" style="cursor: default" class="menu-item"
-                 href="#about_me"
-                >About me</a
-              >
-              <a onmouseover="" style="cursor: default" class="menu-item"
-                >Chat</a
-              >
-              <a onmouseover="" style="cursor: default" class="menu-item"
-                >Services</a
-              >
-              <a onmouseover="" style="cursor: default" class="menu-item"
-                >Weiteres</a
-              >
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="menu-icon" id="menu-icon">
+      <a
+        onmouseover=""
+        class="menu-button"
+        href="javascript:void(0)"
+        onclick="showMenu()"
+        ><i class="bx bx-menu"></i>
+      </a>
+      <div class="menu-content" id="menu-content">
+        <a
+          onmouseover=""
+          style="cursor: default"
+          class="menu-item"
+          href="#about_me"
+          >About me</a
+        >
+        <a onmouseover="" style="cursor: default" class="menu-item">Chat</a>
+        <a onmouseover="" style="cursor: default" class="menu-item">Services</a>
+        <a onmouseover="" style="cursor: default" class="menu-item">Weiteres</a>
       </div>
     </div>
     <script src="/static/script.js"></script>

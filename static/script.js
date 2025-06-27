@@ -1,22 +1,27 @@
 document.addEventListener("scroll", function () {
   const navbar = document.querySelector(".navbar");
   const menu_button = document.querySelector(".menu-button");
+  const menu_icon = document.querySelector(".menu-icon");
   const logo = document.querySelector(".nav-left");
 
   if (window.scrollY > 150) {
     // Navbar kleiner machen
-    navbar.style.height = "90px"; // Höhe der Navbar verkleinern
+    navbar.style.height = null; // Höhe der Navbar verkleinern
     navbar.style.backgroundColor = "rgba(0,0,0,0)";
-    menu_button.style.padding = "1em";
-    menu_button.style.borderRadius = "2em";
-    menu_button.style.backgroundColor = "rgba(5, 5, 10, 0.5)";
+    menu_icon.style.top = "0.2em";
+    menu_icon.style.height = "max-content";
+    menu_button.style.padding = "0.2em";
+    menu_button.style.borderRadius = "0.5em";
+    menu_button.style.backgroundColor = "rgba(5, 5, 10, 0.66)";
     // Logo ausblenden
     logo.style.opacity = "0";
     logo.style.maxHeight = "0"; // Größe des Logos auf 0 setzen
   } else {
     // Navbar wieder auf ursprüngliche Größe setzen
-    navbar.style.height = "190px";
+    navbar.style.height = "20vh";
     navbar.style.backgroundColor = "rgba(5, 5, 10, 0.5)";
+    menu_icon.style.top = null;
+    menu_icon.style.height = "20vh";
     menu_button.style.padding = null;
     menu_button.style.borderRadius = null;
     menu_button.style.backgroundColor = null;
@@ -47,10 +52,13 @@ window.addEventListener("mouseup", function (event) {
   const btn = document.getElementById("menu-icon");
   const device = getComputedStyle(document.body).getPropertyValue("--device");
 
-  if (device === "desktop" && !menu.contains(event.target) && !btn.contains(event.target)) {
+  if (
+    device === "desktop" &&
+    !menu.contains(event.target) &&
+    !btn.contains(event.target)
+  ) {
     menu.classList.remove("show-menu");
   }
-
 });
 
 window.addEventListener("mouseup", function (event) {
@@ -77,7 +85,7 @@ function toggleFullscreen(anyContainer, anyBtn) {
 function slide(anyContainer, direction) {
   let container = document.getElementById(anyContainer);
   const device = getComputedStyle(document.body).getPropertyValue("--device");
-  let scroll = 1000
+  let scroll = 1000;
 
   if (device === "mobile") {
     scroll = 500;
