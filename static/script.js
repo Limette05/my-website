@@ -1,7 +1,7 @@
 document.addEventListener("scroll", function () {
   const navbar = document.querySelector(".navbar");
-  const menu_button = document.querySelector(".menu-button");
   const menu_icon = document.querySelector(".menu-icon");
+  let menu_icon_open = document.getElementById("menu-icon-free");
   const logo = document.querySelector(".nav-left");
 
   if (window.scrollY > 150) {
@@ -10,9 +10,7 @@ document.addEventListener("scroll", function () {
     navbar.style.backgroundColor = "rgba(0,0,0,0)";
     menu_icon.style.top = "0.2em";
     menu_icon.style.height = "max-content";
-    menu_button.style.padding = "0.2em";
-    menu_button.style.borderRadius = "0.5em";
-    menu_button.style.backgroundColor = "rgba(5, 5, 10, 0.66)";
+    menu_icon_open.classList.add("menu-icon-free");
     // Logo ausblenden
     logo.style.opacity = "0";
     logo.style.maxHeight = "0"; // Größe des Logos auf 0 setzen
@@ -22,9 +20,7 @@ document.addEventListener("scroll", function () {
     navbar.style.backgroundColor = "rgba(5, 5, 10, 0.5)";
     menu_icon.style.top = null;
     menu_icon.style.height = "20vh";
-    menu_button.style.padding = null;
-    menu_button.style.borderRadius = null;
-    menu_button.style.backgroundColor = null;
+    menu_icon_open.classList.remove("menu-icon-free");
     // Logo wieder einblenden
     logo.style.opacity = "1";
     logo.style.maxHeight = "180px"; // Ursprüngliche Größe des Logos
@@ -36,13 +32,19 @@ function showMenu() {
   let mobileMenu = document.getElementById("menu-content-mobile");
   let menuBtn = document.getElementById("mobile-menu-button");
   let device = getComputedStyle(document.body).getPropertyValue("--device");
+  let menu_open = document.getElementById("menu-icon-free");
 
   if (device === "desktop") {
     menu.classList.toggle("show-menu");
+    menu_open.classList.toggle("menu-icon-open");
   } else if (device === "mobile") {
-    mobileMenu.classList.toggle("show-menu");
+    const isOpen = mobileMenu.classList.toggle("show-menu");
     menuBtn.classList.toggle("show-menu");
-    document.body.classList.toggle("no-scroll");
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
   }
 }
 

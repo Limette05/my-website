@@ -38,11 +38,10 @@
       .menu-content {
         min-width: 20vw;
         font-size: 0.5em;
-        padding: 15px 15px;
         position: absolute;
         display: none;
         z-index: 100000;
-        background-color: rgba(5, 5, 10, 1);
+        background-color: rgba(5, 5, 10, 0.5);
         left: 50%;
         transform: translateX(-50%);
         align-items: center;
@@ -50,6 +49,7 @@
         border-bottom-left-radius: 1em;
         border-bottom-right-radius: 1em;
         top: 100%;
+        transition: height 0.3s ease-in-out;
       }
 
       .menu-content-mobile {
@@ -104,12 +104,28 @@
       .menu-icon:hover .menu-content {
         display: flex;
       }
-      .menu-icon:hover .menu-button {
-        border-radius: none;
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
+      .menu-icon-free:hover {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        width: 20vw;
+        padding: 0;
       }
-
+      .menu-icon-open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0.5em;
+        border-top-right-radius: 0.5em;
+        width: 20vw;
+        padding: 0;
+      }
+      .menu-icon-free {
+        background-color: rgba(5, 5, 10, 0.5);
+        padding: 0.2em;
+        border-radius: 0.5em;
+        transition: width 0.5s;
+      }
       .menu-content a {
         text-decoration: none;
         text-align: center;
@@ -118,7 +134,7 @@
       }
       .menu-content a:hover {
         color: rgb(70, 210, 110);
-        background-color: rgb(33, 33, 33);
+        background-color: rgb(17, 22, 20, 0.5);
       }
       .nav-left {
         display: flex;
@@ -225,6 +241,7 @@
     <div class="menu-icon" id="menu-icon">
       <a
         onmouseover=""
+        id="menu-icon-free"
         class="menu-button"
         href="javascript:void(0)"
         onclick="showMenu()"
@@ -240,7 +257,16 @@
         >
         <a onmouseover="" style="cursor: default" class="menu-item">Chat</a>
         <a onmouseover="" style="cursor: default" class="menu-item">Services</a>
-        <a onmouseover="" style="cursor: default" class="menu-item">Weiteres</a>
+        <a
+          onmouseover=""
+          style="
+            cursor: default;
+            border-bottom-left-radius: 1em;
+            border-bottom-right-radius: 1em;
+          "
+          class="menu-item"
+          >Weiteres</a
+        >
       </div>
     </div>
     <script src="/static/script.js"></script>
