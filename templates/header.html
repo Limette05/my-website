@@ -12,7 +12,11 @@
       :root {
         --device: desktop;
       }
-
+      .scrolled-down {
+        height: fit-content;
+        background-color: rgba(0,0,0,0);
+        transition: opacity 0.3s ease;
+      }
       .navbar {
         display: flex;
         align-items: center;
@@ -71,6 +75,8 @@
 
       .mobile-menu-button {
         font-size: 2.5em;
+        width: 2em;
+        height: 2em;
         margin-bottom: 1em;
         color: rgb(70, 210, 110);
         text-decoration: none;
@@ -112,6 +118,7 @@
       .nav-left {
         display: flex;
         align-items: center;
+        transition: opacity 0.275s ease, max-height 0.3s ease;
       }
 
       .title-name {
@@ -218,7 +225,7 @@
         class="mobile-menu-button"
         id="mobile-menu-button"
         href="javascript:void(0)"
-        onclick="showMenuOnMobile()"
+        onclick="showMenu()"
         ><i class="bx bx-menu"></i>
       </a>
       <a onmouseover="" style="cursor: default" class="menu-item">About me</a>
@@ -226,25 +233,26 @@
       <a onmouseover="" style="cursor: default" class="menu-item">Services</a>
       <a onmouseover="" style="cursor: default" class="menu-item">Weiteres</a>
     </div>
-    <div class="navbar">
+    <div class="navbar" id="navbar">
       <div class="nav-left">
         <a style="display: flex; order: 1" href="/"
           ><img class="logo" src="/static/img/logo.png" alt="" />
+          <div class="title-name">Limettensaft</div>
         </a>
-        <div class="title-name">Limettensaft</div>
       </div>
       <div class="navbar-center">
         <div class="menu">
-          <div class="menu-icon">
+          <div class="menu-icon" id="menu-icon">
             <a
               onmouseover=""
               class="menu-button"
               href="javascript:void(0)"
-              onclick="showMenuOnMobile()"
+              onclick="showMenu()"
               ><i class="bx bx-menu"></i>
             </a>
             <div class="menu-content" id="menu-content">
               <a onmouseover="" style="cursor: default" class="menu-item"
+                 href="#about_me"
                 >About me</a
               >
               <a onmouseover="" style="cursor: default" class="menu-item"

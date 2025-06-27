@@ -9,6 +9,10 @@
   background: rgba(34, 178, 34, 0.6);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins";
   font-size: 20px;
@@ -17,8 +21,14 @@ body {
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.65);
   color: whitesmoke;
   background-color: rgba(5, 5, 10, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 /* h1=2em, h2=1.5em, h3=1.17em, h4=1em */
+body.no-scroll {
+  overflow: hidden;
+}
 
 a {
   color: whitesmoke;
@@ -79,13 +89,15 @@ button:hover {
 }
 
 .toggle-fullscreen {
-  position: absolute;
+  position: fixed;
   left: 4em;
   right: 4em;
+  top: 0;
+  bottom: 0;
   width: calc(100vw - 8em);
-  height: 100vh;
+  height: 100%;
   z-index: 1000000;
-  background-color: rgba(5, 5, 10, 0.3);
+  background-color: rgba(5, 5, 10, 0.75);
   align-items: center;
   justify-content: center;
 }
@@ -124,24 +136,92 @@ button:hover {
   order: 3;
 }
 
+.block-container {
+  padding: 2em 2em;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 2em;
+  position: relative;
+  margin-inline: 2em;
+  width: calc(100% - 8em);
+}
+.block-2 {
+  display: flex;
+  gap: 1em;
+  flex-flow: row;
+  width: 100%;
+  justify-content: center;
+}
+.block-1 {
+  display: flex;
+  width: 100%;
+}
+.block-content {
+  flex-grow: 1;
+}
+.block-content img {
+  width: 100%;
+}
+.github-profile {
+  display: flex;
+  flex-flow: column;
+  min-width: 25%;
+}
+.github-pfp {
+  border-radius: 50%;
+}
+
+.github-repositories {
+  display: flex;
+  gap: 1em;
+  flex-grow: 3;
+  width: 100%;
+  flex-flow: column;
+}
+.github-repo {
+  flex: 1 1 0px;
+  padding: 1em 1em;
+  border: 1px rgba(70, 210, 110, 0.33) solid;
+  border-radius: 2em;
+}
+.github-pfp-name {
+  display: flex;
+  flex-flow: column;
+}
+
 /* phone */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   body {
     font-size: 14px;
+    gap: 1em;
   }
   .toggle-fullscreen {
     left: 0em;
     right: 0em;
     width: 100vw;
   }
-}
-
-/* portrait tablet or big phone */
-@media (min-width: 600px) {
-  body {
-    font-size: 15px;
+  .block-container {
+    margin-inline: 0.75em;
+    width: calc(100% - 5.5em);
+  }
+  .block-2 {
+    flex-flow: column;
+  }
+  .github-profile{
+    gap: 2em;
+  }
+  .github-pfp-name {
+    flex-flow: row;
+    gap: 1em;
+    justify-content: center;
+  }
+  .github-pfp {
+    max-width: 33%;
+  }
+  .github-pfp-name h3 {
+    align-content: center;
   }
 }
+
 
 /* Tablet */
 @media (min-width: 768px) {
@@ -158,7 +238,8 @@ button:hover {
   .toggle-fullscreen {
     left: 4em;
     right: 4em;
-    width: calc(100vw - 8em);}
+    width: calc(100vw - 8em);
+  }
 }
 
 /* Desktop */
