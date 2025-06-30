@@ -1,6 +1,6 @@
 import os
 import datetime
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for # type: ignore
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user, login_remembered
 from sqlalchemy.orm import DeclarativeBase

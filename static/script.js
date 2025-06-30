@@ -6,7 +6,7 @@ document.addEventListener("scroll", function () {
 
   if (window.scrollY > 150) {
     // Navbar kleiner machen
-    navbar.style.height = null; // Höhe der Navbar verkleinern
+    navbar.style.height = "0px"; // Höhe der Navbar verkleinern
     navbar.style.backgroundColor = "rgba(0,0,0,0)";
     menu_icon.style.top = "0.2em";
     menu_icon.style.height = "max-content";

@@ -1,3 +1,8 @@
+@font-face{
+font-family: "Poppins";
+src: url('Poppins-Regular.ttf');
+font-weight: bold;}
+
 ::-moz-selection {
   /* Code for Firefox */
   color: dark-gray;
