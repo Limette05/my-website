@@ -104,13 +104,15 @@
       .menu-icon:hover .menu-content {
         display: flex;
       }
-      .menu-icon-free:hover {
+      .menu-icon:hover .menu-icon-free {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0.5em;
         border-top-right-radius: 0.5em;
         width: 20vw;
+        margin-inline: auto;
         padding: 0;
+        background-color: rgba(5, 5, 10, 0.5);
       }
       .menu-icon-open {
         border-bottom-left-radius: 0;
@@ -119,6 +121,7 @@
         border-top-right-radius: 0.5em;
         width: 20vw;
         padding: 0;
+        background-color: rgba(5, 5, 10, 0.5);
       }
       .menu-icon-free {
         background-color: rgba(5, 5, 10, 0.5);
@@ -167,6 +170,16 @@
         .menu-icon:hover .menu-content {
           display: none;
         }
+        .menu-icon:hover .menu-icon-free {
+          border-bottom-left-radius: 0.5em;
+          border-bottom-right-radius: 0.5em;
+          border-top-left-radius: 0.5em;
+          border-top-right-radius: 0.5em;
+          width: unset;
+          background-color: rgba(5, 5, 10, 0.5);
+          padding: 0.2em;
+          transition: width 0.5s;
+        }
       }
 
       /* Tablet */
@@ -183,6 +196,16 @@
         }
         .menu-icon:hover .menu-content {
           display: none;
+        }
+        .menu-icon:hover .menu-icon-free {
+          border-bottom-left-radius: 0.5em;
+          border-bottom-right-radius: 0.5em;
+          border-top-left-radius: 0.5em;
+          border-top-right-radius: 0.5em;
+          width: unset;
+          background-color: rgba(5, 5, 10, 0.5);
+          padding: 0.2em;
+          transition: width 0.5s;
         }
       }
 

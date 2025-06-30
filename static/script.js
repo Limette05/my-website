@@ -14,8 +14,11 @@ document.addEventListener("scroll", function () {
     // Logo ausblenden
     logo.style.opacity = "0";
     logo.style.maxHeight = "0"; // Größe des Logos auf 0 setzen
+    setTimeout(check, 1000);
+    navbar.style.display = "none";
   } else {
-    // Navbar wieder auf ursprüngliche Größe setzen
+    // Navbar wieder auf ursprüngliche Werte setzen
+    navbar.style.display = "flex";
     navbar.style.height = "20vh";
     navbar.style.backgroundColor = "rgba(5, 5, 10, 0.5)";
     menu_icon.style.top = null;
@@ -37,6 +40,7 @@ function showMenu() {
   if (device === "desktop") {
     menu.classList.toggle("show-menu");
     menu_open.classList.toggle("menu-icon-open");
+    menu_open.classList.toggle("menu-icon-free");
   } else if (device === "mobile") {
     const isOpen = mobileMenu.classList.toggle("show-menu");
     menuBtn.classList.toggle("show-menu");
@@ -53,6 +57,7 @@ window.addEventListener("mouseup", function (event) {
   const menu = document.getElementById("menu-content");
   const btn = document.getElementById("menu-icon");
   const device = getComputedStyle(document.body).getPropertyValue("--device");
+  let menu_open = document.getElementById("menu-icon-free");
 
   if (
     device === "desktop" &&
@@ -60,6 +65,8 @@ window.addEventListener("mouseup", function (event) {
     !btn.contains(event.target)
   ) {
     menu.classList.remove("show-menu");
+    menu_open.classList.remove("menu-icon-open");
+    menu_open.classList.add("menu-icon-free");
   }
 });
 
