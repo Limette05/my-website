@@ -6,7 +6,7 @@ VENV_DIR=".venv"
 # Name der Screen-Session
 SCREEN_NAME="flask_app"
 
-HOST="45.93.249.124"
+HOST="localhost"
 
 # Überprüfen, ob screen installiert ist
 if ! command -v screen &> /dev/null; then
