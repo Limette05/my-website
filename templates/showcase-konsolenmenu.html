@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #111;
+        color: #eee;
+        font-family: monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #console {
+        background: #000;
+        border: 1px solid #555;
+        padding: 1rem;
+        width: 600px;
+        height: 400px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+      }
+
+      #input-line {
+        display: flex;
+        margin-top: 1rem;
+      }
+
+      #input-line span {
+        margin-right: 0.5rem;
+        align-content: center;
+      }
+
+      #user-input {
+        background: transparent;
+        border: none;
+        color: #0f0;
+        background-color: rgba(167, 255, 196, 0.2);
+        border-radius: 0.33em;
+        padding: 0.2em 0.2em;
+        align-items: center;
+        font-family: inherit;
+        font-size: 1rem;
+        outline: none;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="console">
+      <div id="output" style="text-align: left">
+        <pre>
+Hauptmenü 
+            
+Bitte auswählen: 
+[0] exit 
+[1] Zahl erraten 
+[2] Warme Dusche
+[3] Überraschung!</pre
+        >
+      </div>
+
+      <div id="input-line">
+        <span>input&gt;</span>
+        <input type="text" id="user-input" autocomplete="off" autofocus />
+      </div>
+    </div>
+
+    <script>
+      const input = document.getElementById("user-input");
+      const output = document.getElementById("output");
+      const consoleDiv = document.getElementById("console");
+
+      function printLine(text) {
+        output.innerText += "\n" + text;
+        consoleDiv.scrollTop = consoleDiv.scrollHeight;
+      }
+
+      function clearInput() {
+        input.value = "";
+      }
+
+      function handleCommand(cmd) {
+        switch (cmd) {
+          case "0":
+            printLine("\nProgramm beendet. Auf Wiedersehen!");
+            input.disabled = true;
+            break;
+          case "1":
+            printLine("\nZahl erraten: Noch nicht implementiert.");
+            break;
+          case "2":
+            printLine("\nDu bekommst jetzt eine warme Dusche ☀️🚿");
+            break;
+          case "3":
+            printLine("\nÜberraschung! 🎉🎁");
+            break;
+          default:
+            output.innerText = "";
+            printLine(
+              "Ungültige Eingabe.\n\nHauptmenü\n\nBitte auswählen:\n[0] exit\n[1] Zahl erraten\n[2] Warme Dusche\n[3] Überraschung!"
+            );
+        }
+      }
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const value = input.value.trim();
+          printLine("input > " + value);
+          handleCommand(value);
+          clearInput();
+        }
+      });
+    </script>
+  </body>
+</html>

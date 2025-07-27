@@ -56,22 +56,76 @@
     </div>
     <div class="block-container" id="about_me">
       <div class="block-2">
-        <div class="block-content">
+        <div
+          class="block-content"
+          style="display: flex; flex-direction: column"
+        >
           <h1>Wer bin ich?</h1>
-          <p>Hallo, ich bin die Limette!</p>
-          Ich bin geboren 2005 und komme aus Niedersachsen. <br />
-          Seit 2021 programmiere ich viele Kleinigkeiten in Python und seit 2025
-          wage ich mich an die Webentwicklung. <br />
-          Das Coden macht mir sehr viel Spaß, sowie das Zocken. <br />
-          Am liebsten spiele ich League Of Legends (Ich bin Briar-Top Main ;D).
-          <br />
-          Angefangen hat meine Begeisterung für Technik beim Minecraft spielen
-          und dem Erstellen eigener Server auf gemieteten Linux Servern. <br />
-          Nach meiner Kaufmännischen Ausbildung suche ich nach einer Möglichkeit
-          Informatiker zu werden.
+          <p>
+            Hallo, ich bin die Limette!
+            <br />Geboren 2005 in Niedersachsen <br />Angefangen hat meine
+            Begeisterung für Technik beim Minecraft spielen und dem Erstellen
+            eigener Server auf gemieteten Linux Servern. <br />Zum ersten Mal
+            programmiert habe ich in der 10. Klasse 2021. <br />Unser
+            Informatiklehrer lehrte meine Mitschülern das Schreiben eines
+            kleinen <br />
+            <a
+              class="showcase-cookieclicker-btn"
+              style="text-decoration: underline"
+              onclick="{
+              const show = document.getElementById('showcase-konsolenmenu');
+              show.classList.toggle('hidden');
+            }"
+              >Konsolen-Menüs</a
+            >
+          </p>
+          <div
+            id="showcase-konsolenmenu"
+            class="showcase-konsolenmenu hidden"
+            style="max-width: fit-content; max-height: fit-content"
+          >
+            <iframe
+              style="width: 650px; height: 450px"
+              src="/showcase-konsolenmenu"
+              frameborder="0"
+            ></iframe>
+          </div>
+          <p>
+            während ich schon an meinem
+            <a
+              class="showcase-cookieclicker-btn"
+              style="text-decoration: underline"
+              onclick="{
+              const show = document.getElementById('showcase-cookieclicker');
+              show.classList.toggle('hidden');
+            }"
+              >Cookie-Clicker</a
+            >
+            bastelte :D
+          </p>
+          <div id="showcase-cookieclicker" class="showcase-cookieclicker">
+            <!--CookieClicker-->
+          </div>
+          <p>
+            <br />Seit 2025 wage ich mich an die Webentwicklung. Es macht mir
+            sehr viel Spaß, sowie das Zocken. <br />Am liebsten spiele ich
+            League Of Legends (Ich bin Briar-Top Main ;D). <br />Nach meiner
+            Ausbildung zum Kaufmann für Groß- und Außenhandelsmanagement
+            (Fachrichtung Großhandel, Branche Heizung/Sanitär), <br />Strebe ich
+            den Weg eines Informatikers an, da mein Interesse im Laufe der
+            Ausbildung an Überhand gewonnen hat.
+          </p>
         </div>
         <div class="block-content">
           <img src="/static/img/limedev-chibi-transparent.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="block-container">
+      <div class="block-2">
+        <h1>Meine Reise:</h1>
+        <div class="zeitstrahl">
+          <!--Hier Zeitstrahl-->
         </div>
       </div>
     </div>

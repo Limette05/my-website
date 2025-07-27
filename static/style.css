@@ -56,6 +56,10 @@ button:hover {
   color: rgb(70, 210, 110);
 }
 
+.hidden {
+  display: none;
+}
+
 .header-container {
   position: relative;
   text-align: center;
@@ -195,6 +199,10 @@ button:hover {
 .github-pfp-name {
   display: flex;
   flex-flow: column;
+}
+
+.showcase-cookieclicker-btn:hover {
+  cursor: pointer;
 }
 
 /* phone */

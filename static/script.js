@@ -2,7 +2,7 @@ document.addEventListener("scroll", function () {
   const navbar = document.querySelector(".navbar");
   const menu_icon = document.querySelector(".menu-icon");
   const logo = document.querySelector(".nav-left a");
-  const title = document.querySelector(".title-name")
+  const title = document.querySelector(".title-name");
 
   if (window.scrollY > 150) {
     // Navbar kleiner machen

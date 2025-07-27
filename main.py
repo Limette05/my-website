@@ -31,5 +31,10 @@ def index():
               {"image":"2.jpg", "title":"Ich bin ein total entspannter Typ! :)"}]
     return render_template("index.html", headers=mylist)
 
+@app.route("/showcase-konsolenmenu")
+def showcase_konsolenmenu():
+   return render_template("showcase-konsolenmenu.html")
+
+
 if __name__ == "__main__":
     app.run(host=host)
