@@ -34,6 +34,9 @@ def index():
 @app.route("/showcase-konsolenmenu")
 def showcase_konsolenmenu():
    return render_template("showcase-konsolenmenu.html")
+@app.route("/rechtliches")
+def rechtliches():
+   return render_template("rechtliches.html")
 
 
 if __name__ == "__main__":
